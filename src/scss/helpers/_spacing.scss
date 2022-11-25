@@ -1,0 +1,18 @@
+@use 'sass:list';
+@use 'sass:meta';
+@use './convert' as *;
+
+@function sizing($vals...) {
+  $newlist: ();
+  @each $val in $vals {
+    @if typeof($val) == 'list' {
+      @each $subval in $val {
+        $newlist: list.append($newlist, designUnitToRem($subval));
+      }
+    } @else {
+      $newlist: list.append($newlist, designUnitToRem($val));
+    }
+  }
+
+  @return $newlist;
+}

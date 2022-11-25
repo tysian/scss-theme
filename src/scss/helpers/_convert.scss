@@ -1,0 +1,37 @@
+@use 'sass:math';
+@import './strip-unit';
+
+@function pxToRem($val: 16px) {
+  @if unit($val) != 'px' {
+    @error 'Incorrect value unit provided: `#{unit($val)}`! Accepting: `px`.';
+  }
+  @return math.div($val, 16px) * 1rem;
+}
+
+@function pxToEm($val: 16px) {
+  @if unit($val) != 'px' {
+    @error 'Incorrect value unit provided: `#{unit($val)}`! Accepting: `px`.';
+  }
+  @return math.div($val, 16px) * 1em;
+}
+
+@function remToPx($val: 1rem) {
+  @if unit($val) != 'rem' and unit($val) != 'em' {
+    @error 'Incorrect value unit provided: `#{unit($val)}`! Accepting: `rem` or `em`.';
+  }
+
+  @return strip-unit($val) * 16px;
+}
+
+@function designUnitToRem($design-unit: 1) {
+  @if type-of($design-unit) != 'number' {
+    @error 'The provided value: `#{$design-unit}` is of incorrect type: `#{type-of($design-unit)}`. Type of `Number` is required!';
+  }
+
+  @if unitless($design-unit) {
+    $px: $design-unit * 4px;
+    @return ($design-unit * pxToRem($px));
+  }
+
+  @return $design-unit;
+}
