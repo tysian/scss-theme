@@ -1,0 +1,24 @@
+@use 'sass:map';
+
+@function helper($key, $val) {
+  $collection: ();
+  $newkey: $key;
+  @if type-of($val) == 'map' {
+    @each $subval in $val {
+    }
+    // $newnewkey: helper();
+  }
+}
+
+@mixin generate-css-props($entries) {
+  @each $base, $value in $entries {
+    $prop-name: $base;
+    $prop-val: $value;
+    // @while type-of($prop-val) == 'map' {
+    // }
+
+    @if type-of($value) != 'map' {
+      --#{$base}: #{$value};
+    }
+  }
+}

@@ -5,7 +5,7 @@
   $cursor: 0;
   $increment-by: 0.25;
 
-  @while $cursor < $max {
+  @while $cursor <= $max {
     @if $cursor >= 80 {
       $increment-by: 16;
     } @else if $cursor >= 64 {
@@ -20,8 +20,8 @@
       $increment-by: 0.5;
     }
 
-    $cursor: $cursor + $increment-by;
     $indexes-list: list.append($indexes-list, $cursor);
+    $cursor: $cursor + $increment-by;
   }
 
   @return $indexes-list;
