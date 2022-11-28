@@ -1,6 +1,6 @@
-@import './utils/theme.scss';
+@import './utils';
 
-// body {
-//   // display: block;
-//   background-color: red;
-// }
+body {
+  margin: sizing(1 2 3 4);
+  padding: sizing(2, 3, 5, 6);
+}

@@ -1,6 +1,5 @@
 @use 'sass:map';
 @use 'sass:math';
-@import '../helpers';
 
 $theme: (
   'colors': (
@@ -177,6 +176,30 @@ $theme: (
     '2xl': 1600px,
     '3xl': 1920px,
   ),
+  'media': (
+    'motionOK': '(prefers-reduced-motion: no-preference)',
+    'motionNotOK': '(prefers-reduced-motion: reduce)',
+    'opacityOK': '(prefers-reduced-transparency: no-preference)',
+    'opacityNotOK': '(prefers-reduced-transparency: reduce)',
+    'useDataOK': '(prefers-reduced-data: no-preference)',
+    'useDataNotOK': '(prefers-reduced-data: reduce)',
+
+    'OSdark': '(prefers-color-scheme: dark)',
+    'OSlight': '(prefers-color-scheme: light)',
+
+    'highContrast': '(prefers-contrast: more)',
+    'lowContrast': '(prefers-contrast: less)',
+
+    'portrait': '(orientation: portrait)',
+    'landscape': '(orientation: landscape)',
+
+    'HDcolor': '(dynamic-range: high)',
+
+    'touch': '(hover: none) and (pointer: coarse)',
+    'stylus': '(hover: none) and (pointer: fine)',
+    'pointer': '(hover) and (pointer: coarse)',
+    'mouse': '(hover) and (pointer: fine)',
+  ),
   'containers': (
     'margin': 1rem,
     'widths': (
@@ -191,7 +214,3 @@ $theme: (
 // $theme: map.set($theme, 'colors', 'transparent', rgba(0, 0, 0, 0));
 // // $theme: map.merge($theme, $extend);
 // $val: remToPx(1rem);
-body {
-  margin: spacing(1 2 3 4);
-  padding: spacing(2, 3, 5, 6);
-}

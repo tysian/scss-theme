@@ -1,0 +1,28 @@
+@use 'sass:list';
+
+@function du-indexes($max: 96) {
+  $indexes-list: ();
+  $cursor: 0;
+  $increment-by: 0.25;
+
+  @while $cursor < $max {
+    @if $cursor >= 80 {
+      $increment-by: 16;
+    } @else if $cursor >= 64 {
+      $increment-by: 8;
+    } @else if $cursor >= 20 {
+      $increment-by: 4;
+    } @else if $cursor >= 12 {
+      $increment-by: 2;
+    } @else if $cursor >= 4 {
+      $increment-by: 1;
+    } @else if $cursor >= 0.5 {
+      $increment-by: 0.5;
+    }
+
+    $cursor: $cursor + $increment-by;
+    $indexes-list: list.append($indexes-list, $cursor);
+  }
+
+  @return $indexes-list;
+}

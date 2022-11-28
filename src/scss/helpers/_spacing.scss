@@ -5,14 +5,15 @@
 @function sizing($vals...) {
   $newlist: ();
   @each $val in $vals {
-    @if typeof($val) == 'list' {
-      @each $subval in $val {
-        $newlist: list.append($newlist, designUnitToRem($subval));
-      }
+    @if type-of($val) == 'list' {
+      $newlist: sizing($val...);
     } @else {
-      $newlist: list.append($newlist, designUnitToRem($val));
+      $newlist: list.append($newlist, du-to-rem($val));
     }
   }
-
+  @if list.length($newlist) == 0 {
+    @warn "You should pass an argument to a `sizing()` function.";
+    @return 0;
+  }
   @return $newlist;
 }
