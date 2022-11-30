@@ -1,1 +1,7 @@
-// Easing
+@use 'sass:map';
+@use './theme.scss' as *;
+@use '../helpers' as *;
+
+:root {
+  @include generate-css-props(map.get($theme, 'easing'));
+}

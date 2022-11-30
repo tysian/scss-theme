@@ -1,5 +1,7 @@
 @use 'sass:map';
+@use './theme.scss' as *;
+@use '../helpers' as *;
+
 :root {
-  $colors: map.get($theme, 'colors');
-  @include generate-css-props($colors);
+  @include generate-css-props(map.get($theme, 'colors'));
 }

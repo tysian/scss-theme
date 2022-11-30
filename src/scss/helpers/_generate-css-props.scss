@@ -1,24 +1,46 @@
 @use 'sass:map';
+@use 'sass:list';
 
-@function helper($key, $val) {
-  $collection: ();
-  $newkey: $key;
-  @if type-of($val) == 'map' {
-    @each $subval in $val {
+@function parse-theme-to-props($entries, $parentkey: null) {
+  $collection: [];
+
+  @each $base, $value in $entries {
+    $newbase: $base;
+
+    @if $parentkey {
+      $newbase: '#{$parentkey}-#{$base}';
+
+      @if $base == 'DEFAULT' {
+        $newbase: $parentkey;
+      }
     }
-    // $newnewkey: helper();
+
+    @if type-of($value) == 'map' {
+      $collection: list.join(
+        $collection,
+        parse-theme-to-props($value, $newbase)
+      );
+    } @else {
+      $collection: list.append(
+        $collection,
+        (
+          'k': $newbase,
+          'v': $value,
+        )
+      );
+    }
   }
+
+  @return $collection;
 }
 
 @mixin generate-css-props($entries) {
-  @each $base, $value in $entries {
-    $prop-name: $base;
-    $prop-val: $value;
-    // @while type-of($prop-val) == 'map' {
-    // }
+  $props: parse-theme-to-props($entries);
 
-    @if type-of($value) != 'map' {
-      --#{$base}: #{$value};
-    }
+  @each $prop in $props {
+    $k: map.get($prop, 'k');
+    $v: map.get($prop, 'v');
+
+    --#{$k}: #{$v};
   }
 }
