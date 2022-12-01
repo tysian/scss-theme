@@ -1,1 +1,21 @@
+@use 'sass:map';
+@use '../helpers/generate-classes' as *;
+@use './get-theme.scss' as *;
+
 // Containers
+@include generate-classes(
+    (
+      'container': map.get(get-theme(), 'containers'),
+    )
+  )
+  using ($props) {
+  $classname: map.get($props, 'classname');
+  $value: map.get($props, 'value');
+  $gap: map.get(get-theme(), 'grid', 'column-gap');
+
+  .#{$classname} {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: min(#{$value}, 100% - #{$gap});
+  }
+}

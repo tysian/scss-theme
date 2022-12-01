@@ -1,0 +1,27 @@
+# TODO
+
+- [x] Generowanie CSS Properties
+  - [x] Kolory
+  - [x] Shadows
+  - [x] Easing
+  - [x] Radius
+  - [x] Animations
+  - [ ] Media
+- [x] Rozszerzenie domyślnego theme
+- [ ] Generowanie klas CSS
+  - [ ] Escape jeśli liczba na początku
+  - [ ] Dodawanie breakpointów
+  - [ ] Stworzenie klas
+    - [ ] Containers
+    - [ ] Gap
+    - [ ] Flex grid (jak w bootstrapie)
+    - [ ] Grid
+    - [ ] Stack
+    - [ ] Misc (dodatkowe utility classes)
+      - [ ] sr-only
+- [ ] Generowanie mixinów do MQ
+- [ ] Typography
+  - [ ] Uzupełnienie `$theme`
+  - [ ] Mixin
+- [ ] Reset
+- [ ] Prose (Rich text)

@@ -1,6 +1,6 @@
-@import './utils/spacing';
+@import './utils/sizing';
 
 body {
-  margin: sizing(1 2 3 4);
+  margin: sizing(1);
   padding: sizing(2, 3, 5, 6);
 }

@@ -1,7 +1,6 @@
 @use 'sass:map';
-@use '../helpers' as *;
+@use '../helpers/generate-css-props' as *;
 @use './get-theme.scss' as *;
-// @use './theme.scss' as *;
 
 :root {
   @include generate-css-props(map.get(get-theme(), 'colors'));

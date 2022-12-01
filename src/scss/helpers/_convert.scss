@@ -36,8 +36,7 @@
   }
 
   @if unitless($design-unit) {
-    $px: $design-unit * 4px;
-    @return ($design-unit * px-to-rem($px));
+    @return $design-unit * 0.25rem;
   }
 
   @return $design-unit;

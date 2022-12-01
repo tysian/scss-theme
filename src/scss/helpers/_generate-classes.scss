@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use './parse-theme-to-props' as *;
+
+@mixin generate-classes($entries) {
+  $props: parse-theme-to-props($entries);
+
+  @each $prop in $props {
+    $classname: map.get($prop, 'k');
+    $value: map.get($prop, 'v');
+
+    @content (('classname': $classname, 'value': $value));
+  }
+}

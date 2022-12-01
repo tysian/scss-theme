@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../helpers' as *;
+@use './get-theme' as *;
+
+:root {
+  @include generate-css-props(
+    (
+      'radius': map.get(get-theme(), 'radius'),
+    )
+  );
+}

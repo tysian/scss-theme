@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'sass:math';
+@use './sizing.scss' as *;
 
 $theme: (
   'colors': (
@@ -7,11 +8,6 @@ $theme: (
     'current': 'currentColor',
     'white': #fff,
     'black': #000,
-    'test': (
-      'light': 'lightblue',
-      'DEFAULT': 'blue',
-      'dark': 'darkblue',
-    ),
     'gray': (
       '50': #fafafa,
       '100': #f5f5f5,
@@ -207,11 +203,12 @@ $theme: (
     'pointer': '(hover) and (pointer: coarse)',
     'mouse': '(hover) and (pointer: fine)',
   ),
+  'grid': (
+    'column-gap': sizing(8),
+    'row-gap': sizing(8),
+  ),
   'containers': (
-    'margin': 1rem,
-    'widths': (
-      'DEFAULT': 1140px,
-      'full': 100%,
-    ),
+    'DEFAULT': 1140px,
+    'full': 100%,
   ),
 ) !default;

@@ -1,0 +1,34 @@
+@use 'sass:list';
+
+@function parse-theme-to-props($entries, $parentkey: null) {
+  $collection: [];
+
+  @each $base, $value in $entries {
+    $newbase: $base;
+
+    @if $parentkey {
+      $newbase: '#{$parentkey}-#{$base}';
+
+      @if $base == 'DEFAULT' {
+        $newbase: $parentkey;
+      }
+    }
+
+    @if type-of($value) == 'map' {
+      $collection: list.join(
+        $collection,
+        parse-theme-to-props($value, $newbase)
+      );
+    } @else {
+      $collection: list.append(
+        $collection,
+        (
+          'k': $newbase,
+          'v': $value,
+        )
+      );
+    }
+  }
+
+  @return $collection;
+}
