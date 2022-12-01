@@ -215,9 +215,3 @@ $theme: (
     ),
   ),
 ) !default;
-
-// $theme: map.set($theme, 'containers', 'widths', 'full', 20px);
-// $theme: map.set($theme, 'containers', 'widths', 'nowy', 1536px);
-// $theme: map.set($theme, 'colors', 'transparent', rgba(0, 0, 0, 0));
-// // $theme: map.merge($theme, $extend);
-// $val: remToPx(1rem);

@@ -1,0 +1,12 @@
+@use 'sass:meta';
+@use 'sass:map';
+@use './theme' as d;
+@use './extended-theme' as e;
+
+@function get-theme() {
+  @if map.has-key(meta.module-variables('e'), 'theme') {
+    @return e.$theme;
+  }
+
+  @return d.$theme;
+}

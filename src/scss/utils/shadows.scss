@@ -1,13 +1,11 @@
-// Shadows
-
 @use 'sass:map';
-@use './theme.scss' as *;
 @use '../helpers' as *;
+@use './get-theme' as *;
 
 :root {
   @include generate-css-props(
     (
-      'shadow': map.get($theme, 'shadows'),
+      'shadow': map.get(get-theme(), 'shadows'),
     )
   );
 }

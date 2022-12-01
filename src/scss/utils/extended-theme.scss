@@ -1,0 +1,9 @@
+@use '../helpers/extend-theme' as *;
+
+$theme: extend-theme(
+  (
+    'colors': (
+      'primary': red,
+    ),
+  )
+);

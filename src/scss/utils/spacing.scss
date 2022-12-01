@@ -1,6 +1,6 @@
 @use 'sass:list';
 @use 'sass:meta';
-@use './convert' as *;
+@use '../helpers/convert' as *;
 
 @function sizing($vals...) {
   $newlist: ();

@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use '../utils/theme' as *;
+
+@function extend-theme($new-theme: ()) {
+  @return map.deep-merge($theme, $new-theme);
+}
